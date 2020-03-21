@@ -3,7 +3,7 @@
 
 /*!
  *  Plik zawiera definicje struktury LZesplona oraz zapowiedzi
- *  przeciazen operatorow arytmetycznych dzialajacych na tej
+ *  przeciazen operatorow arytmetycznych dzialajacych na tej 
  *  strukturze.
  */
 
@@ -22,19 +22,7 @@ struct  LZespolona {
  */
 
 
-LZespolona  con(LZespolona Z1); // Liczba sprzezona
-
-double abs(LZespolona Z1); // wartosc bezwzgledna/odleglosc
-
 LZespolona  operator + (LZespolona  Skl1,  LZespolona  Skl2);
-
-LZespolona  operator - (LZespolona  Skl1,  LZespolona  Skl2);
-
-LZespolona  operator * (LZespolona  Skl1,  LZespolona  Skl2);
-
-LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2);
-
-//LZespolona  operator = (LZespolona  Skl1,  LZespolona  Skl2);
 
 
 #endif
