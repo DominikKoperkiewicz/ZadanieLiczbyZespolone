@@ -21,7 +21,12 @@ static WyrazenieZesp  TestLatwy[] =
  *
  */
 
-
+static WyrazenieZesp  TestTrudny[] =
+  { {{5,8}, Op_Dodaj, {7,4}},
+    {{4,2}, Op_Odejmij, {2,5}},
+    {{3,5}, Op_Mnoz, {8,3}},
+    {{0,7}, Op_Dziel, {1,9}},
+  };
 
 
 
@@ -33,7 +38,7 @@ static WyrazenieZesp  TestLatwy[] =
  *    wskTabTestu  - wskaznik na tablice zawierajaca wyrazenia arytmetyczne
  *                   bedace przedmiotem testu,
  *    IloscElemTab - ilosc pytan w tablicy.
- *   
+ *
  * Warunki wstepne:
  *      - Parametr wskBazaTestu nie moze byc pustym wskaznikiem. Musi zawierac adres
  *        zmiennej reprezentujacej baze testu, ktora wczesniej zostal poprawnie
@@ -54,7 +59,7 @@ void UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned in
 
 /*
  * Inicjalizuje test kojarzac zmienna dostepna poprzez wskaznik wskBazaTestu
- * z dana tablica wyrazen, ktora reprezentuje jeden z dwoch dopuszczalnych 
+ * z dana tablica wyrazen, ktora reprezentuje jeden z dwoch dopuszczalnych
  * testow.
  * Parametry:
  *    wskBazaTestu - wskaznik na zmienna reprezentujaca baze testu.
@@ -65,7 +70,7 @@ void UstawTest( BazaTestu *wskBazaTestu, WyrazenieZesp *wskTabTestu, unsigned in
  *        zmiennej reprezentujacej baze testu, ktora wczesniej zostal poprawnie
  *        zainicjalizowany poprzez wywolanie funkcji InicjalizujTest.
  *      - Parametr sNazwaTestu musi wskazywac na jedna z nazw tzn. "latwe" lub "trudne".
- *       
+ *
  * Zwraca:
  *       true - gdy operacja sie powiedzie i test zostanie poprawnie
  *              zainicjalizowany,
@@ -80,6 +85,11 @@ bool InicjalizujTest( BazaTestu  *wskBazaTestu, const char *sNazwaTestu )
   /*
    * Analogicznie zrob inicjalizacje dla testu trudne
    */
+  if (!strcmp(sNazwaTestu,"trudny")) {
+    UstawTest(wskBazaTestu,TestTrudny,sizeof(TestTrudny)/sizeof(WyrazenieZesp));
+    return true;
+  }
+
 
   cerr << "Otwarcie testu '" << sNazwaTestu << "' nie powiodlo sie." << endl;
   return false;
