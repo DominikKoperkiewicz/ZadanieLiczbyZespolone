@@ -52,24 +52,6 @@ std::istream & operator >> (std::istream & in, WyrazenieZesp & WyrZ)
     return in;
 }
 
-void wyswietl(WyrazenieZesp  WyrZ)
-{
-    wyswietl(WyrZ.Arg1);
-    switch(WyrZ.Op)
-    {
-        case Op_Dodaj  : std::cout << "+";
-            break;
-        case Op_Odejmij: std::cout << "-";
-            break;
-        case Op_Mnoz   : std::cout << "*";
-            break;
-        case Op_Dziel  : std::cout << "/";
-    }
-    wyswietl(WyrZ.Arg2);
-    //cout << "(" << WyrZ.Arg1.re << showpos << WyrZ.Arg1.im << noshowpos << "i)";
-    //cout << "(" << WyrZ.Arg2.re << showpos << WyrZ.Arg2.im << noshowpos << "i)";
-
-}
 
 LZespolona oblicz(WyrazenieZesp  WyrZ)
 {

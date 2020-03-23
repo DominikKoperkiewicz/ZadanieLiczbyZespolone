@@ -19,7 +19,6 @@ struct  LZespolona {
 
 
 LZespolona utworz(double r, double i);
-void wyswietl(LZespolona Z1);
 std::istream & operator >> (std::istream & in, LZespolona & Z); //Wczytaj
 std::ostream & operator << (std::ostream & out, const LZespolona & Z); //Wyswietl
 
@@ -38,6 +37,8 @@ LZespolona  operator - (LZespolona  Skl1,  LZespolona  Skl2);
 LZespolona  operator * (LZespolona  Skl1,  LZespolona  Skl2);
 
 LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2);
+
+LZespolona  operator / (LZespolona  Skl1,  double  Skl2);
 
 bool  operator == (LZespolona  Skl1,  LZespolona  Skl2);
 

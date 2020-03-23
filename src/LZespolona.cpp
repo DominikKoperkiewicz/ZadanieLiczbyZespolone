@@ -9,10 +9,7 @@ LZespolona utworz(double r, double i)
     return Z;
 }
 
-void wyswietl(LZespolona Z1)
-{
-    std::cout << "(" << Z1.re << std::showpos << Z1.im << std::noshowpos << "i)";
-}
+
 
 std::istream & operator >> (std::istream & in, LZespolona & Z)
 {
@@ -23,11 +20,13 @@ std::istream & operator >> (std::istream & in, LZespolona & Z)
     if(znak != 'i') in.setstate(std::ios::failbit);
     in >> znak;
     if(znak != ')') in.setstate(std::ios::failbit);
+    return in;
 }
 
 std::ostream & operator << (std::ostream & out, const LZespolona & Z)
 {
     out << "(" << Z.re << std::showpos << Z.im << std::noshowpos << "i)";
+    return out;
 }
 
 LZespolona  sprzezona(LZespolona Z1)
@@ -93,9 +92,18 @@ LZespolona  operator = (LZespolona  &Skl1,  LZespolona  Skl2)
 LZespolona  operator / (LZespolona  Skl1,  LZespolona  Skl2)
 {
   LZespolona Wynik;
-  Wynik = Skl1 * sprzezona(Skl2);
-  Wynik.re = Wynik.re/( modul(Skl2)*modul(Skl2) );
-  Wynik.im = Wynik.im/( modul(Skl2)*modul(Skl2) );
+  Wynik = Skl1 * sprzezona(Skl2) / ( modul(Skl2)*modul(Skl2) );
+  //Wynik.re = Wynik.re/( modul(Skl2)*modul(Skl2) );
+  //Wynik.im = Wynik.im/( modul(Skl2)*modul(Skl2) );
+
+  return Wynik;
+}
+
+LZespolona  operator / (LZespolona  Skl1,  double  Skl2)
+{
+  LZespolona Wynik;
+  Wynik.re = Wynik.re/Skl2;
+  Wynik.im = Wynik.im/Skl2;
 
   return Wynik;
 }

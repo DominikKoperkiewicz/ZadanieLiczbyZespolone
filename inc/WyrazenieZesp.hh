@@ -36,7 +36,6 @@ std::istream & operator >> (std::istream & in, Operator & Op);
 
 std::istream & operator >> (std::istream & in, WyrazenieZesp & WyrZ);
 
-void wyswietl(WyrazenieZesp  WyrZ);
 LZespolona oblicz(WyrazenieZesp  WyrZ);
 
 #endif

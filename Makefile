@@ -37,3 +37,4 @@ ${OBJ}/BazaTestu.o: src/BazaTestu.cpp inc/BazaTestu.hh inc/WyrazenieZesp.hh\
 
 clear:
 	rm -f ${TRGDIR}/test_arytm_zesp ${OBJ}/*
+	rmdir obj
