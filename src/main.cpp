@@ -42,10 +42,18 @@ int main(int argc, char **argv)
   LZespolona   Odp;
 
   while (PobierzNastpnePytanie(&BazaT,&WyrZ_PytanieTestowe)) {
-    //cout << " Czesc rzeczywista pierwszego argumentu: ";
-    //cout << WyrZ_PytanieTestowe.Op << endl;
     cout << ":? Podaj Wynik Operacji: " << WyrZ_PytanieTestowe << "\n   Twoja odpowiedz: ";
+    int i = 3; //ilosc szans
+    do
+    {
+    cin.clear();
+    cin.ignore(255, '\n');
     cin >> Odp;
+    i--;
+    }
+    while(cin.fail() && i > 0);
+    cin.clear();
+
     if(Odp == oblicz(WyrZ_PytanieTestowe))
     {
         dodajDobra(Staty);
@@ -58,14 +66,5 @@ int main(int argc, char **argv)
     }
   }
 
-
-  cout << endl;
-  cout << " Koniec testu" << endl;
-  cout << "------------Statystyki------------\n";
-  cout << "Ilosc poprawnych odpowiedzi: " << iloscDobrych(Staty) << "\n";
-  cout << "Ilosc blednych odpowiedzi: " << iloscZlych(Staty) << "\n";
-  cout << "Wynik procentowy: " << (iloscDobrych(Staty)*100.0)/(iloscZlych(Staty) + iloscDobrych(Staty)) << "%\n";
-  cout << "----------------------------------";
-  cout << endl;
-
+  wyswietl(Staty);
 }

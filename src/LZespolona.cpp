@@ -13,14 +13,38 @@ LZespolona utworz(double r, double i)
 
 std::istream & operator >> (std::istream & in, LZespolona & Z)
 {
+
     char znak;
     in >> znak;
-    if(znak != '(') in.setstate(std::ios::failbit);
+    if(znak != '(') in.setstate(std::ios_base::failbit);
     in >> Z.re >> Z.im >> znak;
-    if(znak != 'i') in.setstate(std::ios::failbit);
+    if(znak != 'i') in.setstate(std::ios_base::failbit);
     in >> znak;
-    if(znak != ')') in.setstate(std::ios::failbit);
+    if(znak != ')') in.setstate(std::ios_base::failbit);
     return in;
+
+/*
+    char znak;
+    in >> znak;
+    if(znak != '(')
+    {
+        in.setstate(std::ios_base::failbit);
+        return in;
+    }
+    in >> Z.re >> Z.im >> znak;
+    if(znak != 'i')
+    {
+        in.setstate(std::ios_base::failbit);
+        return in;
+    }
+    in >> znak;
+    if(znak != ')')
+    {
+        in.setstate(std::ios_base::failbit);
+        return in;
+    }
+    return in;
+*/
 }
 
 std::ostream & operator << (std::ostream & out, const LZespolona & Z)

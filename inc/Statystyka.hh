@@ -11,11 +11,12 @@ void dodajDobra(Statystyka & St);
 
 void dodajZla(Statystyka & St);
 
-int iloscDobrych(Statystyka & St);
+int iloscDobrych(Statystyka St);
 
-int iloscZlych(Statystyka & St);
+int iloscZlych(Statystyka St);
 
 void ustaw(Statystyka & St, int db, int zl);
 
+void wyswietl(Statystyka St);
 
 #endif
