@@ -44,11 +44,12 @@ int main(int argc, char **argv)
   while (PobierzNastpnePytanie(&BazaT,&WyrZ_PytanieTestowe)) {
     cout << ":? Podaj Wynik Operacji: " << WyrZ_PytanieTestowe << "\n   Twoja odpowiedz: ";
     int i = 3; //ilosc szans
+
     do
     {
     cin.clear();
-    cin.ignore(255, '\n');
     cin >> Odp;
+    cin.ignore(255, '\n');
     i--;
     }
     while(cin.fail() && i > 0);
@@ -66,5 +67,5 @@ int main(int argc, char **argv)
     }
   }
 
-  wyswietl(Staty);
+  cout << " Koniec testu" << "\n" << Staty;
 }
